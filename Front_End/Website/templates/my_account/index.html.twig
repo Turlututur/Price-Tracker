@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon compte{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="mainblock">
+                {% if app.user != null %}
+                    <h1>Votre compte</h1>
+                    <p>Vous vous appelez {{app.user.name}}</p>
+                    <p>Votre addresse email : {{app.user.email}}</p>
+                    {% if app.user.phoneNumber != null %}
+                    <p>Votre numéro de téléphone : {{app.user.phoneNumber}}</p>
+                    {% endif %}
+                    <a href="{{ path('app_logout') }}" class="btn btn-info">Se déconnecter</a>
+                    <p class="text-primary"><br>Vous pouvez supprimer votre compte si vous le désirez, cependant attention, cette action est irréversible.</p>
+                    <a href="#" class="btn btn-danger delete-user" data-id="{{app.user.id}}">Supprimer mon compte</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/deletingUser.js"></script>
+{% endblock %}

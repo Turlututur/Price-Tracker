@@ -1,0 +1,20 @@
+CREATE TABLE pages_to_track (
+ 	ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,	
+ 	link TEXT NOT NULL,
+ 	timer INT UNSIGNED NOT NULL,
+ 	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ 	);
+ 	
+ 	
+CREATE TABLE price_tracker (
+ 	ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ 	id_article INT NOT NULL ,
+ 	product_name VARCHAR(255) NOT NULL,
+ 	link VARCHAR(255) NOT NULL,
+ 	price INT UNSIGNED NOT NULL,
+ 	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ 	CONSTRAINT LINK_Article FOREIGN KEY (id_article) REFERENCES article(id)
+ 	);
+
+INSERT INTO pages_to_track (link,timer) VALUES('https://www.topachat.com/pages/detail2_cat_est_ordinateurs_puis_rubrique_est_wport_puis_ref_est_in20008759.html',60);
+

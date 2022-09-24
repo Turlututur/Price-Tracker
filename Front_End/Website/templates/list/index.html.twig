@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+{% block title %}Ma liste{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            {% if app.user != null %}
+            <h1>Coucou {{app.user.name}}</h1>
+            {% endif %}
+                <div class="card bg-light mb-3 mt-3">
+                    <div class="card-body">
+                        {% if objects == null %}
+                            <p>Oups, on dirait que vous n'avez pas encore enregistré d'objet...
+                        {% endif %}
+                        {% if app.user != null %}
+                            {% if objects != null %}
+                            <div class="card-header">Voici la liste de vos objets mis en alerte</div>
+                                <table class="table">
+                                    <tr>
+                                        <th>Nom de l'objet</th>
+                                        <th>Prix souhaité</th>
+                                        <th>Détails de l'objet</th>
+                                    </tr>
+                                    {% for key, item in objects %}
+                                        <tr>
+                                            <td>{{ key }}</td><td>{{ item[0] }} €</td><td><a href="/object/{{item[1]}}" class="btn btn-info">Détails</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            {% endif %}
+                            <a href="{{ path('object') }}" class="btn btn-info"> Ajouter un objet</a>
+                            </div>
+                        {% endif %}                          
+                </div>
+                {% if app.user == null %}
+                    <a href="{{ path('app_login') }}" class="btn btn-info"> Bien tenté mais il vous faut être connecté pour avoir accès aux listes !</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

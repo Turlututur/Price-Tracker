@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue !{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p><br></p>
+        <h1>Bienvenue sur notre site d'alerte prix !</h1>
+        <p>Vous désirez acheter quelque-chose en ligne mais vous vous êtes rendus compte que le produit que vous souhaitiez est trop cher ?
+        <br>Vous n'avez sûrement pas envie de passer votre temps à retourner sur ce site dans l'espoir de constater une baisse de prix 
+        mais vous n'avez pas envie d'en manquer une malgré tout ?</p>
+        <h3>Alerte prix est là pour vous aider à économiser</h3>
+
+        <figure>
+            <blockquote class="blockquote">
+                <p class="mb-0">D'accord mais comment ça marche ?</p>
+            </blockquote>
+        </figure>
+        <p>
+            C'est très simple, il vous suffit pour cela de vous créer un compte et de vous connecter. Une fois cela fait, enregistrez votre
+            produit souhaité et notre site se charge du reste, vous recevrez un e-mail (et un SMS si vous le souhaitez) lors d'une baisse de prix en fonction de votre budget !<br>
+        </p>
+        <p class="text-primary">A noter que pour l'instant seul les liens de certains sites ne sont fonctionnels (Amazon et Topachat).</p>
+
+        {% if app.user != null %}
+            <p>Vous êtes déjà connecté</p>
+            <a href="{{ path('list') }}" class="btn btn-info">Ma liste d'envies</a>
+        {% else %}
+            <p>Commencez par vous connecter !</p>
+            <a href="{{ path('app_login') }}" class="btn btn-info">Se connecter</a>
+            <br><p>Vous n'avez pas de compte ?</p>
+            <a href="{{ path('registration') }}" class="btn btn-info">Se créer un compte</a>
+        {% endif %}   
+    </div>
+{% endblock %}

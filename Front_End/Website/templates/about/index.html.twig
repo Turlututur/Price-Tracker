@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p><br></p>
+                <h1>À propos</h1>
+                <h2>Le site</h2>
+                <p>
+                    Ce site a été réalisé lors d'un projet annuel encadré par le Master Informatique de Caen. Le but de ce projet est de réaliser un site web capable d'envoyer des alertes à un utilisateur lorsqu'un produit qu'il souhaite acheter se trouve
+                    être à prix réduit.<br>
+                    Les languages utilisés sont PHP (via Symfony) pour ce qui est de la réalisation du site sur lequel vous vous trouvez
+                    ainsi que Python pour gérer la verification des prix et l'envoi des <br>e-mails. Quant à la base de données, il s'agit d'une base sous SQL.<br>
+                </p>
+                <h2>Qui sommes nous ?</h2>
+                <p>Nous sommes deux étudiants de première année de Master Informatique option Internet, Données et Connaissances, à Caen.</p>
+                <ul>
+                    <li>Alexandre PIGNARD - Réalisation de la partie 'crawler' sous Python, envoi de mail et SMS ainsi que gestion de la base de données.</li>
+                    <li>Arthur BOCAGE - Réalisation du site web sous PHP (via Symfony) et gestion de la base de données.</li>
+                </ul>
+                <a href="https://spaniol.users.greyc.fr/" class="btn btn-info" target="_blank" rel="noopener noreferrer">Ce projet a été encadré par Mr Marc SPANIOL, enseignant à l'Université de Caen Normandie</a>
+
+                <a href="https://www.unicaen.fr/" target="_blank" rel="noopener noreferrer">
+                    <img class="unicaen-logo" alt="Unicaen" src="https://www.unicaen.fr/wp-content/themes/parent-theme/img/svg/2020_UNICAEN_LOGO_isotype-signature_horizontal_noir.svg" width="300" height="140">
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

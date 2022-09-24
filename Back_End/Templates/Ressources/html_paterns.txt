@@ -1,0 +1,14 @@
+Ammazon 
+note : 
+	s'en fou des robots
+Prix :
+	a-price a-text-price a-size-medium
+	a-price a-text-price a-size-medium
+
+
+Titre :
+	à l'air de toujours avoir un id = "productTitle"
+
+Fnac
+note : 
+	Balance un capcha si sur une ip de résidence, besoin d'une ip local Y /vpn ? 

@@ -1,0 +1,23 @@
+Table User : 
+
+id | nom | mail | mdp | 
+
+Table Article :
+id | Article 
+
+Table Article User : 
+user_id (OneToOne) | article_id (OneToOne) | Price
+
+Table Links : 
+id | link | article_id (ManyToOne) 
+
+
+
+
+
+
+
+
+**Pas utile ?
+Table Article Links 
+article_id | link_id | article_links_id (OneToMany)

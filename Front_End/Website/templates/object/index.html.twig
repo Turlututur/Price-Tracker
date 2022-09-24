@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{objects.article}}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" id="object">
+            <h1>Page sur votre objet</h1>
+            <p>
+                Voici votre objet : {{objects.article}} que vous souhaitez acheter à {{price}} €. <br>
+            </p>
+
+            {% if links|length == 1 %}
+                <p>
+                    Voici le lien de votre article :
+                </p>
+                <a href={{links[0].link}} class="btn btn-info" target="_blank" rel="noopener noreferrer">{{links[0].link[0:40]}}...</a><p><br></p>
+            {% endif %}
+
+            {% if links|length > 1 %}
+            <p>
+                    Voici les liens de votre article :<br>
+            </p>
+                {% for i in range (0, links|length - 1) %}
+                    <a href={{links[i].link}} class="btn btn-info" target="_blank" rel="noopener noreferrer">{{links[i].link[0:40]}}...</a><p><br></p>
+                    {# {{dump(parse_url(links[0].link))}} #}
+                {% endfor %}
+            {% endif %}
+
+            <p>Vous pouvez ajouter un lien à votre objet si vous le souhaitez :</p>
+
+            {{ form_start(form) }}
+                    <div class="form_group">
+                        <div class="col-md-12 mb-3">
+                            {{ form_row(form.link, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
+                            <button type="submit" class="btn btn-info">
+                            <i class="fa fa-btn fa-user"></i> Ajouter un lien
+                            </button>
+                        </div>
+                    </div>
+            {{ form_end(form) }}
+            <br>
+
+            <a href="{{ path('list') }}" class="btn btn-info">Retour vers la liste</a><p><br></p>
+            <a href="#" class="btn btn-danger delete-article" data-id="{{objects.id}}">Supprimer l'alerte ?</a>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/deletingAlert.js"></script>
+{% endblock %}
